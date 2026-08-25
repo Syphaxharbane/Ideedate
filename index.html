@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Une question spéciale pour toi... ❤️</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="style.css">
+    <!-- EmailJS SDK v4 -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+    <!-- Arrière-plan animé avec cœurs flottants -->
+    <div class="hearts-container" id="hearts-bg"></div>
+
+    <div class="main-container">
+        <!-- ================= PAGE 1 : PROPOSITION ================= -->
+        <div id="page1" class="card active">
+            <div class="card-icon bounce-animation">💌</div>
+            <p class="subtitle">J’ai une petite question pour toi…</p>
+            <h1 class="title">Tu veux sortir avec moi ? 😍</h1>
+            <p class="description">Promis, ça pourrait être un très joli moment à deux. ❤️</p>
+            
+            <div class="buttons-wrapper">
+                <button id="btn-yes" class="btn btn-primary glow-effect">
+                    OUI ❤️
+                </button>
+                <div class="no-btn-container">
+                    <button id="btn-no" class="btn btn-secondary">
+                        NON 😭
+                    </button>
+                </div>
+            </div>
+            
+            <div id="no-message-box" class="message-bubble hidden"></div>
+        </div>
+
+        <!-- ================= PAGE 2 : CHOIX DE LA DATE ================= -->
+        <div id="page2" class="card hidden">
+            <div class="card-icon pulse-animation">🥰</div>
+            <h1 class="title">Je savais que tu dirais oui !</h1>
+            <h2 class="subheading">Choisissons notre date 💕</h2>
+            <p class="description">Choisis le jour et l’heure qui te conviennent.</p>
+
+            <form id="date-form" class="date-form">
+                <div class="form-group">
+                    <label for="input-date">📅 Date</label>
+                    <input type="date" id="input-date" required class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="input-time">⏰ Heure</label>
+                    <input type="time" id="input-time" required class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="input-message">💌 Un petit message (facultatif)</label>
+                    <textarea id="input-message" maxlength="500" placeholder="Un p'tit mot doux, une idée de restaurant ou une activité..." class="form-textarea"></textarea>
+                    <span class="char-counter"><span id="char-count">0</span>/500</span>
+                </div>
+
+                <!-- Banner d'erreur amélioré avec détection en direct -->
+                <div id="error-message" class="error-banner hidden">
+                    <div id="error-text">L’envoi a échoué 😭 Vérifie ta connexion et réessaie.</div>
+                    <div id="error-details" class="error-details-box"></div>
+                </div>
+
+                <button type="submit" id="btn-submit" class="btn btn-primary full-width glow-effect">
+                    <span class="btn-text">Confirmer notre date ❤️</span>
+                    <span class="btn-loader hidden"></span>
+                </button>
+            </form>
+        </div>
+
+        <!-- ================= PAGE 3 : CONFIRMATION ================= -->
+        <div id="page3" class="card hidden">
+            <div class="card-icon heart-pop">💖</div>
+            <h1 class="title">Date confirmé ! 🎉</h1>
+            <p class="description highlight-text">
+                C’est officiel. J’ai reçu ton choix et je garde cette date précieusement. 🥹❤️
+            </p>
+
+            <div class="summary-box">
+                <div class="summary-item">
+                    <span class="summary-label">📅 Date :</span>
+                    <span id="summary-date" class="summary-val"></span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">⏰ Heure :</span>
+                    <span id="summary-time" class="summary-val"></span>
+                </div>
+                <div class="summary-item summary-msg-item">
+                    <span class="summary-label">💌 Message :</span>
+                    <span id="summary-message" class="summary-val italic"></span>
+                </div>
+            </div>
+
+            <p class="footer-love">J’ai hâte de te voir. 💕</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
